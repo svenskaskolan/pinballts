@@ -1,33 +1,27 @@
 <template>
-  <head>
-      <meta charset="utf-8">
-      <title>Phils Pinball Database</title>
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <title>Phils Pinball Database</title>
+    </head>
   <body>
       <h1>{{ title }}</h1>
       <div id="app">
-        <table>
-            <thead>
-                <tr class="Table-Heading">
-                    <td width="58" style="height:15.0pt;width:44pt">Code</td>
-                    <td width="204" style="width:153pt">Name</td>
-                    <td width="74" style="width:56pt">Links</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="pintable in pinData" :key="'pintable' + pintable.name">
-                    <td>{{pintable.tag}}</td>
-                    <td>{{pintable.name}}</td>
-                    <td>
-                        <template v-for="(link, index) in pintable.links" :key="'link' + link.linkhref">
-                            <a class="u-marginRsm" :href="link.linkhref">Link{{index + 1}}</a><span> </span>
-                        </template>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="u-flexSpaceBetween">
+            <div class="u-width20">Code</div>
+            <div class="u-width40">Name</div>
+            <div class="u-width40">Links</div>
+        </div>
+        <div class="u-flexSpaceBetween" v-for="pintable in pinData" :key="'pintable' + pintable.name">
+            <div class="u-width20">{{pintable.tag}}</div>
+            <div class="u-width40">{{pintable.name}}</div>
+            <div class="u-width40">
+                <template v-for="(link, index) in pintable.links" :key="'link' + link.linkhref">
+                    <a class="u-marginRsm" :href="link.linkhref">Link{{index + 1}}</a><span> </span>
+                </template>
+            </div>
+        </div>
       </div>
-  </body>
+    </body>
 </template>
 
 <script lang="ts">
@@ -675,6 +669,8 @@ export default class Pinball extends Vue {
       font-size: 16px;
   }
 
+
+
   table {
       width: 100%;
   }
@@ -705,6 +701,19 @@ export default class Pinball extends Vue {
 
   .u-marginRsm {
       margin-right: 6px;
+  }
+
+  .u-flexSpaceBetween {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .u-width20 {
+      width: 20%;
+  }
+
+  .u-width40 {
+      width: 40%;
   }
 
   tr:nth-child(odd) {
