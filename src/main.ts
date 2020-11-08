@@ -1,4 +1,4 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import Pinball from './pages/Pinball.vue'
 
-createApp(App).mount('#app')
+createApp(Pinball).mount('#app')
