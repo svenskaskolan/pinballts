@@ -4,37 +4,31 @@
         <title>Phils Pinball Database</title>
     </head>
   <body>
-      <h1>{{ title }}</h1>
-      <div id="app">
-        <div class="u-flexSpaceBetween">
-            <div class="u-width20">Code</div>
-            <div class="u-width40">Name</div>
-            <div class="u-width40">Links</div>
-        </div>
-        <div class="u-flexSpaceBetween" v-for="pintable in pinData" :key="'pintable' + pintable.name">
-            <div class="u-width20">{{pintable.tag}}</div>
-            <div class="u-width40">{{pintable.name}}</div>
-            <div class="u-width40">
-                <template v-for="(link, index) in pintable.links" :key="'link' + link.linkhref">
-                    <a class="u-marginRsm" :href="link.linkhref">Link{{index + 1}}</a><span> </span>
-                </template>
+        <div class="u-mainNormal">
+            <h1>{{ title }}</h1>
+            <div class="u-flexSpaceBetween u-heading">
+                <div class="u-width20">Code</div>
+                <div class="u-width40">Name</div>
+                <div class="u-width40">Links</div>
+            </div>
+            <div class="u-flexSpaceBetween" v-for="pintable in pinData" :key="'pintable' + pintable.name">
+                <div class="u-width20 u-ellipsis">{{pintable.tag}}</div>
+                <div class="u-width40 u-ellipsis">{{pintable.name}}</div>
+                <div class="u-width40 u-ellipsis">
+                    <template v-for="(link, index) in pintable.links" :key="'link' + link.linkhref">
+                        <a class="u-marginRsm u-link" :href="link.linkhref">video{{index + 1}}</a><span> </span>
+                    </template>
+                </div>
             </div>
         </div>
-      </div>
     </body>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '../components/HelloWorld.vue';
-import { Prop } from 'vue-property-decorator';
+import { Vue } from 'vue-class-component';
+import { } from 'vue-property-decorator';
 import { PinTable } from '../interfaces/pintable';
 
-@Options({
-  components: {
-    HelloWorld,
-  },
-})
 export default class Pinball extends Vue {
     title: string = '';
     pinData: PinTable[] = [
@@ -655,75 +649,7 @@ export default class Pinball extends Vue {
     }
 
     getData(): void {
-        fetch('assets/data/tables.json')
-        .then(res => res.json())
-        .then(json => {
-            console.info('data loaded');
-        });
+        console.info('here we will load the data in the future');
     }
 }
 </script>
-
-<style>
-  html {
-      font-size: 16px;
-  }
-
-
-
-  table {
-      width: 100%;
-  }
-
-  tr {
-      width: 100%;
-  }
-
-  th {
-      padding: 0 20px;
-      text-align: left;
-  }
-
-  td {
-      padding: 0 20px;
-  }
-
-  h1 {
-      color: #4a4a4a;
-      margin: 20px;
-
-  }
-
-  .Table-Heading {
-      line-height: 40px;    
-      font-size: 1.2em;
-  }
-
-  .u-marginRsm {
-      margin-right: 6px;
-  }
-
-  .u-flexSpaceBetween {
-      display: flex;
-      justify-content: space-between;
-  }
-
-  .u-width20 {
-      width: 20%;
-  }
-
-  .u-width40 {
-      width: 40%;
-  }
-
-  tr:nth-child(odd) {
-      background-color: #dedede;
-  }
-  @media screen and (max-width : 550px)
-  {
-    body
-    {
-      font-size: 1.5em;
-    }
-  }
-</style>

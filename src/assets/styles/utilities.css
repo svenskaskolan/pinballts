@@ -1,0 +1,58 @@
+html {
+    font-size: 16px;
+}
+
+h1 {
+    color: #4a4a4a;
+    margin: 20px 0;
+
+}
+.u-heading {
+    font-weight: bold;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.u-link {
+    text-decoration: none;
+    color: blue;
+    font-style: italic;
+}
+.u-marginRsm {
+    margin-right: 6px;
+}
+
+.u-mainNormal {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.u-flexSpaceBetween {
+    display: flex;
+    justify-content: space-between;
+}
+
+.u-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.u-width20 {
+    width: 20%;
+}
+
+.u-width40 {
+    width: 40%;
+}
+
+@media screen and (max-width : 550px)
+{
+    body {
+        font-size: 1.2em;
+    }
+    .u-mainNormal {
+        margin: 0 auto;
+        width: 94%;
+    }
+}
