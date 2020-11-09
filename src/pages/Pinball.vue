@@ -7,14 +7,14 @@
         <div class="u-mainNormal">
             <h1>{{ title }}</h1>
             <div class="u-flexSpaceBetween u-heading">
-                <div class="u-width20">Code</div>
-                <div class="u-width40">Name</div>
-                <div class="u-width40">Links</div>
+                <div class="u-paddingLsm u-width20">Code</div>
+                <div class="u-paddingLsm u-width40">Name</div>
+                <div class="u-paddingLsm u-width40">Links</div>
             </div>
-            <div class="u-flexSpaceBetween" v-for="pintable in pinData" :key="'pintable' + pintable.name">
-                <div class="u-width20 u-ellipsis">{{pintable.tag}}</div>
-                <div class="u-width40 u-ellipsis">{{pintable.name}}</div>
-                <div class="u-width40 u-ellipsis">
+            <div class="u-flexSpaceBetween u-paddingBsm" v-for="pintable in pinData" :key="'pintable' + pintable.name">
+                <div class="u-paddingLsm u-width20 u-ellipsis u-colorBgGrey">{{pintable.tag}}</div>
+                <div class="u-paddingLsm u-width40 u-ellipsis u-colorBgGreyLight">{{pintable.name}}</div>
+                <div class="u-paddingLsm u-width40 u-ellipsis u-colorBgGrey">
                     <template v-for="(link, index) in pintable.links" :key="'link' + link.linkhref">
                         <a class="u-marginRsm u-link" :href="link.linkhref">video{{index + 1}}</a><span> </span>
                     </template>

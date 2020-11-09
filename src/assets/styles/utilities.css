@@ -18,7 +18,62 @@ h1 {
     color: blue;
     font-style: italic;
 }
+
+
+.u-paddingRsm {
+    padding-right: 6px;
+}
+
+
+.u-paddingLsm {
+    padding-left: 6px;
+}
+
+.u-paddingBsm {
+    padding-bottom: 3px;
+}
+
+.u-paddingTsm {
+    padding-top: 3px;
+}
+
+.u-paddingVsm {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.u-paddingHsm {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.u-paddingRsm {
+    padding-right: 6px;
+}
+
 .u-marginRsm {
+    margin-right: 6px;
+}
+
+.u-marginLsm {
+    margin-left: 6px;
+}
+
+.u-marginBsm {
+    margin-bottom: 3px;
+}
+
+.u-marginTsm {
+    margin-top: 3px;
+}
+
+.u-marginVsm {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.u-marginHsm {
+    margin-left: 6px;
     margin-right: 6px;
 }
 
@@ -44,6 +99,14 @@ h1 {
 
 .u-width40 {
     width: 40%;
+}
+
+.u-colorBgGreyLight {
+    background: #eeeeee;
+}
+
+.u-colorBgGrey {
+    background: #e7e7e7;
 }
 
 @media screen and (max-width : 550px)
