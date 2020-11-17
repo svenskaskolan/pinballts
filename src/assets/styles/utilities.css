@@ -76,7 +76,31 @@ h1 {
     margin-left: 6px;
     margin-right: 6px;
 }
+.u-marginR {
+    margin-right: 16px;
+}
 
+.u-marginL {
+    margin-left: 16px;
+}
+
+.u-marginB {
+    margin-bottom: 8px;
+}
+
+.u-marginT {
+    margin-top: 8px;
+}
+
+.u-marginV {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.u-marginH {
+    margin-left: 16px;
+    margin-right: 16px;
+}
 .u-mainNormal {
     margin: 0 auto;
     width: 80%;
@@ -99,6 +123,17 @@ h1 {
 
 .u-width40 {
     width: 40%;
+}
+
+.u-maxWidth40 {
+    max-width: 40%;
+}
+.u-inlineBlock {
+    display: inline-block;
+}
+
+.u-alignMiddle {
+    vertical-align: middle;
 }
 
 .u-colorBgGreyLight {

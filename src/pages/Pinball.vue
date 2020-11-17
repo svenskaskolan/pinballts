@@ -1,11 +1,33 @@
 <template>
     <head>
         <meta charset="utf-8">
-        <title>Phils Pinball Database</title>
+
+        <title>Pinball Tutorials</title>
     </head>
   <body>
         <div class="u-mainNormal">
-            <h1>{{ title }}</h1>
+            <div class="heading">
+                <div class="u-inlineBlock u-marginR u-alignMiddle u-maxWidth40">
+                    <svg class="" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Component_2_1" data-name="Component 2 – 1" transform="translate(1.497)">
+                            <g id="Component_1_1" data-name="Component 1 – 1">
+                            <g id="Rectangle_1" data-name="Rectangle 1" transform="translate(0 54)" fill="none" stroke="#707070" stroke-width="4">
+                                <rect width="108" height="33" stroke="none"/>
+                                <rect x="2" y="2" width="104" height="29" fill="none"/>
+                            </g>
+                            <line id="Line_1" data-name="Line 1" x1="2" y2="34.22" transform="translate(0.5 85.28)" fill="none" stroke="#707070" stroke-width="4"/>
+                            <line id="Line_2" data-name="Line 2" x2="7.24" y2="34.22" transform="translate(101.26 85.28)" fill="none" stroke="#707070" stroke-width="4"/>
+                            <g id="Rectangle_2" data-name="Rectangle 2" fill="none" stroke="#707070" stroke-width="4">
+                                <rect width="16" height="58" stroke="none"/>
+                                <rect x="2" y="2" width="12" height="54" fill="none"/>
+                            </g>
+                            </g>
+                            <text id="tutorials" transform="translate(15 78)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">tutorials</tspan></text>
+                        </g>
+                    </svg>
+                </div>
+                <h1 class="u-inlineBlock">{{ title }}</h1>
+            </div>
             <div class="u-flexSpaceBetween u-heading">
                 <div class="u-paddingLsm u-width20">Code</div>
                 <div class="u-paddingLsm u-width40">Name</div>
@@ -184,9 +206,9 @@ export default class Pinball extends Vue {
         },
         {
         "tag": "DRAG",
-        "name": "Dragon",
+        "name": "Dragon (Gottleib 1978)",
         "links": [{
-            "linkhref": "https://youtu.be/uo-EQSutnQM?t=5765"
+            "linkhref": "https://youtu.be/Fp1k7RcIOkw"
             }]
         },
         {
@@ -644,7 +666,7 @@ export default class Pinball extends Vue {
     ]
 
     mounted(): void {
-        this.title = "Phils Pinball Database";
+        this.title = "Pinball Tutorials";
         // this.getData();
     }
 
