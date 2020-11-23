@@ -5,7 +5,7 @@
         <title>Pinball Tutorials</title>
     </head>
   <body>
-        <div class="u-mainNormal">
+        <div id="app" class="u-mainNormal">
             <div class="heading">
                 <div class="u-inlineBlock u-marginR u-alignMiddle u-maxWidth40">
                     <svg class="" xmlns="http://www.w3.org/2000/svg">
@@ -28,18 +28,37 @@
                 </div>
                 <h1 class="u-inlineBlock">{{ title }}</h1>
             </div>
-            <div class="u-flexSpaceBetween u-heading">
-                <div class="u-paddingLsm u-width20">Code</div>
-                <div class="u-paddingLsm u-width40">Name</div>
-                <div class="u-paddingLsm u-width40">Links</div>
+            <div class="u-flexSpaceBetween">
+                <button type="button" v-on:click="viewStyle = 'list'">List Style</button>
+                <button type="button" v-on:click="viewStyle = 'visual'">Visual Style</button>
             </div>
-            <div class="u-flexSpaceBetween u-paddingBsm" v-for="pintable in pinData" :key="'pintable' + pintable.name">
-                <div class="u-paddingLsm u-width20 u-ellipsis u-colorBgGrey">{{pintable.tag}}</div>
-                <div class="u-paddingLsm u-width40 u-ellipsis u-colorBgGreyLight">{{pintable.name}}</div>
-                <div class="u-paddingLsm u-width40 u-ellipsis u-colorBgGrey">
-                    <template v-for="(link, index) in pintable.links" :key="'link' + link.linkhref">
-                        <a class="u-marginRsm u-link" :href="link.linkhref">video{{index + 1}}</a><span> </span>
-                    </template>
+            <div v-if="viewStyle === 'list'">
+                <div class="u-flexSpaceBetween u-heading">
+                    <div class="u-paddingLsm u-width20">Code</div>
+                    <div class="u-paddingLsm u-width40">Name</div>
+                    <div class="u-paddingLsm u-width40">Links</div>
+                </div>
+                <div  class="u-flexSpaceBetween u-paddingBsm" v-for="pintable in pinData" :key="'pintable' + pintable.name">
+                    <div class="u-paddingLsm u-width20 u-ellipsis u-colorBgGrey">{{pintable.tag}}</div>
+                    <div class="u-paddingLsm u-width40 u-ellipsis u-colorBgGreyLight">{{pintable.name}}</div>
+                    <div class="u-paddingLsm u-width40 u-ellipsis u-colorBgGrey">
+                        <template v-for="(link, index) in pintable.links" :key="'link' + link.linkhref">
+                            <a class="u-marginRsm u-link" :href="link.linkhref">video{{index + 1}}</a><span> </span>
+                        </template>
+                    </div>
+                </div>
+            </div>
+            <div v-else>
+                <div  class="u-flexSpaceBetween u-paddingBsm u-flexWrap" >
+                    <div v-for="pintable in pinData" :key="'pintable' + pintable.name">
+                        <div v-if="pintable.image" class="tableImage u-relative" :style="'background-image: url(http://localhost:8000/assets/images/tables/LPA/' + encodeURI(pintable.image) + ')'">
+                            <div class="u-width10 u-inlineBlock"></div>
+                            <div class="tableText u-inlineBlock">
+                                {{pintable.name}}
+                            </div>
+                            <div class="u-width10 u-inlineBlock"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,10 +68,11 @@
 <script lang="ts">
 import { Vue } from 'vue-class-component';
 import { } from 'vue-property-decorator';
-import { PinTable } from '../interfaces/pintable';
+import { PinTable } from './interfaces/pintable';
 
 export default class Pinball extends Vue {
     title: string = '';
+    viewStyle: string = "list";
     pinData: PinTable[] = [
         {
         "tag": "6M$M",
@@ -64,6 +84,7 @@ export default class Pinball extends Vue {
         {
         "tag": "8B",
         "name": "Eight Ball",
+        "image": "eight ball-bally-760.jpg",
         "links": [{
             "linkhref": "https://youtu.be/-wGicmY0lYk?t=5"
             }]
@@ -91,6 +112,7 @@ export default class Pinball extends Vue {
         {
         "tag": "AFM",
         "name": "Attack from Mars",
+        "image": "attack from mars-bally-3781.jpg",
         "links": [{
             "linkhref": "https://youtu.be/kpi-sdpJFjc?t=73"
             }]
@@ -98,6 +120,7 @@ export default class Pinball extends Vue {
         {
         "tag": "AVA",
         "name": "Avatar",
+        "image": "avatar-stern-5618.jpg",
         "links": [{
             "linkhref": "https://youtu.be/XUnw9ogKkYA?t=15055"
             },{
@@ -107,6 +130,7 @@ export default class Pinball extends Vue {
         {
         "tag": "BJ",
         "name": "Black Jack",
+        "image": "black jack-bally-309.jpg",
         "links": [{
             "linkhref": "https://youtu.be/__XTvYs1GSE?t=40"
             }]
@@ -121,6 +145,7 @@ export default class Pinball extends Vue {
         {
         "tag": "BSD",
         "name": "Bram Stoker's Dracula",
+        "image": "bram stokers dracula-williams-3072.jpg",
         "links": [{
             "linkhref": "https://youtu.be/cR5mvi_edM4?t=60"
             }]
@@ -128,6 +153,7 @@ export default class Pinball extends Vue {
         {
         "tag": "BTDK",
         "name": "Batman the dark Knight",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/HOXy2xpY25o?t=43"
             }]
@@ -135,6 +161,7 @@ export default class Pinball extends Vue {
         {
         "tag": "BURO",
         "name": "Buck Rogers",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/lePevjDCOVE?t=12"
             }]
@@ -142,6 +169,7 @@ export default class Pinball extends Vue {
         {
         "tag": "CD",
         "name": "Count-Down",
+        "image": "count down-gottlieb-573.jpg",
         "links": [{
             "linkhref": "https://youtu.be/OivgT9NXxbI?t=326"
             }]
@@ -149,6 +177,7 @@ export default class Pinball extends Vue {
         {
         "tag": "CFTBL",
         "name": "Creature from the Black Lagoon",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/USGjjXcjM5w?t=668"
             }]
@@ -156,6 +185,7 @@ export default class Pinball extends Vue {
         {
         "tag": "CON",
         "name": "Congo",
+        "image": "congo-bally-3780.jpg",
         "links": [{
             "linkhref": "https://youtu.be/HOxXGvlaMQc?t=721"
             }]
@@ -163,6 +193,7 @@ export default class Pinball extends Vue {
         {
         "tag": "CORV",
         "name": "Corvette",
+        "image": "corvette-williams-570.jpg",
         "links": [{
             "linkhref": "https://youtu.be/F-UEWoNhrvM?t=67"
             }]
@@ -170,6 +201,7 @@ export default class Pinball extends Vue {
         {
         "tag": "CV",
         "name": "Cirqus Voltaire",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/JP5Axk3VLic?t=594"
             }]
@@ -177,6 +209,7 @@ export default class Pinball extends Vue {
         {
         "tag": "DH",
         "name": "Dirty Harry",
+        "image": "dirty harry-williams-684.jpg",
         "links": [{
             "linkhref": "https://youtu.be/fm0WXpLxMnM?t=64"
             }]
@@ -184,6 +217,7 @@ export default class Pinball extends Vue {
         {
         "tag": "DM",
         "name": "Demolition Man",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/ylSY_jQUjs0?t=5069"
             },{
@@ -193,6 +227,7 @@ export default class Pinball extends Vue {
         {
         "tag": "DP",
         "name": "Deadpool",
+        "image": "",
         "links": [{
             "linkhref": "videos\\2019SternProCircuit1.mp4#t=01:06:30"
             }]
@@ -200,6 +235,7 @@ export default class Pinball extends Vue {
         {
         "tag": "DP",
         "name": "Dolly Parton",
+        "image": "dolly parton-bally-698.jpg",
         "links": [{
             "linkhref": "https://youtu.be/tUE_HaR2rBc?t=6518"
             }]
@@ -207,6 +243,7 @@ export default class Pinball extends Vue {
         {
         "tag": "DRAG",
         "name": "Dragon (Gottleib 1978)",
+        "image": "dragon-gottlieb-729.jpg",
         "links": [{
             "linkhref": "https://youtu.be/Fp1k7RcIOkw"
             }]
@@ -214,6 +251,7 @@ export default class Pinball extends Vue {
         {
         "tag": "DW",
         "name": "Doctor Who",
+        "image": "doctor who-bally-738.jpg",
         "links": [{
             "linkhref": "https://youtu.be/iawmrs69jrQ?t=60"
             }]
@@ -221,6 +259,7 @@ export default class Pinball extends Vue {
         {
         "tag": "FH",
         "name": "Funhouse",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/yY0GJPinballXco?t=327"
             }]
@@ -228,6 +267,7 @@ export default class Pinball extends Vue {
         {
         "tag": "FLG",
         "name": "Flash Gordon",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/ylSY_jQUjs0?t=25619"
             }]
@@ -235,6 +275,7 @@ export default class Pinball extends Vue {
         {
         "tag": "FRONT",
         "name": "Frontier",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/7nGOwi7qJgM?t=4690"
             }]
@@ -242,20 +283,17 @@ export default class Pinball extends Vue {
         {
         "tag": "FS",
         "name": "The Flintstones",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/XUnw9ogKkYA?t=28712"
-            }]
-        },
-        {
-        "tag": "FS?",
-        "name": "Flintstones",
-        "links": [{
+            },{
             "linkhref": "videos\\Part5BPO-X.mp4#t=08:02:40"
             }]
         },
         {
         "tag": "FT",
         "name": "Fish Tales",
+        "image": "fish tales-williams-861.jpg",
         "links": [{
             "linkhref": "https://youtu.be/XUnw9ogKkYA?t=26727"
             },{
@@ -267,6 +305,7 @@ export default class Pinball extends Vue {
         {
         "tag": "GB",
         "name": "Ghostbusters",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/XUnw9ogKkYA?t=267"
             }]
@@ -274,6 +313,7 @@ export default class Pinball extends Vue {
         {
         "tag": "GEN?",
         "name": "Genesis",
+        "image": "",
         "links": [{
             "linkhref": "videos\\PAPA20Finals2017.mp4#t=00:03:40"
             },{
@@ -283,6 +323,7 @@ export default class Pinball extends Vue {
         {
         "tag": "GOT",
         "name": "Game of Thrones",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/XUnw9ogKkYA?t=22478"
             },{
@@ -294,6 +335,7 @@ export default class Pinball extends Vue {
         {
         "tag": "GOTG",
         "name": "Guardians of the Galaxy",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/fk6rAZ0vARo?t=10882"
             }]
@@ -301,6 +343,7 @@ export default class Pinball extends Vue {
         {
         "tag": "HG",
         "name": "Harlem Globetrotters on Tour",
+        "image": "harlem globetrotters-bally-1125.jpg",
         "links": [{
             "linkhref": "https://youtu.be/XTqu1NSmQ30?t=595"
             }]
@@ -308,6 +351,7 @@ export default class Pinball extends Vue {
         {
         "tag": "HS2",
         "name": "Getaway: High Speed II",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/y_BgVLzT3I0?t=632"
             }]
@@ -315,22 +359,15 @@ export default class Pinball extends Vue {
         {
         "tag": "I500",
         "name": "Indianapolis 500",
+        "image": "indianapolis 500-bally-2853.jpg",
         "links": [{
             "linkhref": "https://youtu.be/0JJ58ZBaBxo?t=96"
             }]
         },
         {
         "tag": "IM",
-        "name": "Iron Maiden",
-        "links": [{
-            "linkhref": "videos\\IFPA16.mp4#t=06:36:40"
-            },{
-            "linkhref": "videos\\IFPA16.mp4#t=02:09:30"
-            }]
-        },
-        {
-        "tag": "IM",
         "name": "Iron Man",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/XUnw9ogKkYA?t=10551"
             },{
@@ -340,15 +377,21 @@ export default class Pinball extends Vue {
         {
         "tag": "IMDN",
         "name": "Iron Maiden (2018)",
+        "image": "iron maiden legacy of the beast-stern-6555.jpg",
         "links": [{
             "linkhref": "https://youtu.be/tUE_HaR2rBc?t=1138"
             },{
             "linkhref": "https://youtu.be/XUnw9ogKkYA?t=4529"
+            },{
+            "linkhref": "videos\\IFPA16.mp4#t=06:36:40"
+            },{
+            "linkhref": "videos\\IFPA16.mp4#t=02:09:30"
             }]
         },
         {
         "tag": "JOP",
         "name": "Joker Poker",
+        "image": "joker poker-gottlieb-1306.jpg",
         "links": [{
             "linkhref": "https://youtu.be/Forr0hevMVA?t=6278"
             }]
@@ -356,6 +399,7 @@ export default class Pinball extends Vue {
         {
         "tag": "JP2",
         "name": "Jurassic Park (Stern)",
+        "image": "jurassic park-stern-6573.jpg",
         "links": [{
             "linkhref": "https://youtu.be/wsHKv8PFk3s?t=146"
             }]
@@ -363,6 +407,7 @@ export default class Pinball extends Vue {
         {
         "tag": "JQ",
         "name": "Jungle Queen",
+        "image": "",
         "links": [{
             "linkhref": "videos\\PAPA20Finals2017.mp4#t=06:36:40"
             },{
@@ -372,6 +417,7 @@ export default class Pinball extends Vue {
         {
         "tag": "JY",
         "name": "Junk Yard",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/pe1C9LUxn6k?t=281"
             }]
@@ -379,6 +425,7 @@ export default class Pinball extends Vue {
         {
         "tag": "KISS",
         "name": "Kiss (Bally)",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/XUnw9ogKkYA?t=24849"
             },{
@@ -388,6 +435,7 @@ export default class Pinball extends Vue {
         {
         "tag": "LOTR",
         "name": "The Lord of the Rings",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/zttZPQy1vnk?t=501"
             }]
@@ -395,6 +443,7 @@ export default class Pinball extends Vue {
         {
         "tag": "LW",
         "name": "Lost World",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/xMHuvYiDMxI?t=9"
             }]
@@ -402,6 +451,7 @@ export default class Pinball extends Vue {
         {
         "tag": "MA",
         "name": "Mousin Around!",
+        "image": "mousin around-bally-1635.jpg",
         "links": [{
             "linkhref": "https://youtu.be/XPbt_R9FW7E?t=2066"
             }]
@@ -409,6 +459,7 @@ export default class Pinball extends Vue {
         {
         "tag": "MB",
         "name": "Monster Bash",
+        "image": "monster bash-chicago-unknown.jpg",
         "links": [{
             "linkhref": "https://youtu.be/XUnw9ogKkYA?t=18104"
             },{
@@ -420,6 +471,7 @@ export default class Pinball extends Vue {
         {
         "tag": "MET",
         "name": "Metallica",
+        "image": "metallica-stern-6028.jpg",
         "links": [{
             "linkhref": "https://youtu.be/XUnw9ogKkYA?t=2924"
             },{
@@ -431,6 +483,7 @@ export default class Pinball extends Vue {
         {
         "tag": "NF",
         "name": "No Fear",
+        "image": "no fear-williams-2852.jpg",
         "links": [{
             "linkhref": "https://youtu.be/ntJPqnz9OGo?t=1080"
             }]
@@ -438,6 +491,7 @@ export default class Pinball extends Vue {
         {
         "tag": "NGG",
         "name": "No Good Gofers",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/kNOWXKKNqRw?t=71"
             }]
@@ -445,6 +499,7 @@ export default class Pinball extends Vue {
         {
         "tag": "PAR",
         "name": "Paragon",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/S75vg7Wtf7w?t=57"
             }]
@@ -452,6 +507,7 @@ export default class Pinball extends Vue {
         {
         "tag": "POWP",
         "name": "Power Play",
+        "image": "bobby orr power play-bally-1858.jpg",
         "links": [{
             "linkhref": "https://youtu.be/rkgZsn-WvBE?t=10"
             }]
@@ -459,6 +515,7 @@ export default class Pinball extends Vue {
         {
         "tag": "RAD!",
         "name": "Radical!",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/iqyxn1EH1OA?t=51"
             }]
@@ -466,6 +523,7 @@ export default class Pinball extends Vue {
         {
         "tag": "RS",
         "name": "Road Show",
+        "image": "",
         "links": [{
             "linkhref": "videos\\Part5BPO-X.mp4#t=05:15:20"
             },{
@@ -475,6 +533,7 @@ export default class Pinball extends Vue {
         {
         "tag": "SBM",
         "name": "Silverball Mania",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/EGNRddj_ZU0?t=430"
             }]
@@ -482,6 +541,7 @@ export default class Pinball extends Vue {
         {
         "tag": "SHREK",
         "name": "Shrek",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/AJRwpatZR-w?t=1"
             }]
@@ -489,6 +549,7 @@ export default class Pinball extends Vue {
         {
         "tag": "SK8B",
         "name": "Skateball",
+        "image": "skateball-bally-2170.jpg",
         "links": [{
             "linkhref": "https://youtu.be/Y8c43MU7rqs?t=2135"
             },{
@@ -502,6 +563,7 @@ export default class Pinball extends Vue {
         {
         "tag": "SM",
         "name": "Spider-man",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/5mqTABBa3fI?t=5012"
             }]
@@ -509,6 +571,7 @@ export default class Pinball extends Vue {
         {
         "tag": "SNS",
         "name": "Strikes N Spares",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/6Q9mWnumgc8?t=19"
             }]
@@ -516,6 +579,7 @@ export default class Pinball extends Vue {
         {
         "tag": "SOLR",
         "name": "Solar Ride",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/x_CYy_mICZ4?t=226"
             }]
@@ -523,13 +587,15 @@ export default class Pinball extends Vue {
         {
         "tag": "SS",
         "name": "Scared Stiff",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/YOz4RxI-vnQ?t=334"
             }]
         },
         {
         "tag": "ST-B",
-        "name": "Star Trek (Bally)",
+        "name": "Star Trek (Stern)",
+        "image": "Star trek-stern-6044.jpg",
         "links": [{
             "linkhref": "https://youtu.be/wYZuLK6ShUk?t=118"
             }]
@@ -537,6 +603,7 @@ export default class Pinball extends Vue {
         {
         "tag": "SW",
         "name": "Star Wars",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/fk6rAZ0vARo?t=42274"
             }]
@@ -544,6 +611,7 @@ export default class Pinball extends Vue {
         {
         "tag": "T2",
         "name": "Terminator 2",
+        "image": "",
         "links": [{
             "linkhref": "videos\\Part6BPO-X.mp4#t=06:47:52"
             }]
@@ -551,6 +619,7 @@ export default class Pinball extends Vue {
         {
         "tag": "TF",
         "name": "Transformers",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/bFKvbsyt6XI?t=63"
             }]
@@ -558,6 +627,7 @@ export default class Pinball extends Vue {
         {
         "tag": "TNA",
         "name": "Total Nuclear Annihilation",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/s6ZaHk1Fbys?t=57"
             }]
@@ -565,6 +635,7 @@ export default class Pinball extends Vue {
         {
         "tag": "TOM",
         "name": "Theatre of Magic",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/BzLXJMNdoXs?t=69"
             }]
@@ -572,6 +643,7 @@ export default class Pinball extends Vue {
         {
         "tag": "TOTAN",
         "name": "Tales of the Arabian Nights",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/XUnw9ogKkYA?t=252"
             },{
@@ -581,6 +653,7 @@ export default class Pinball extends Vue {
         {
         "tag": "TRON",
         "name": "Tron: Legacy",
+        "image": "disney tron legacy-stern-5682.jpg",
         "links": [{
             "linkhref": "https://youtu.be/8u1bVbwYy0U?t=21"
             }]
@@ -588,6 +661,7 @@ export default class Pinball extends Vue {
         {
         "tag": "TS",
         "name": "The Shadow",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/fMxSmlqRqtE?t=816"
             }]
@@ -595,6 +669,7 @@ export default class Pinball extends Vue {
         {
         "tag": "TWD",
         "name": "The Walking Dead",
+        "image": "the walking dead-stern-6155.jpg",
         "links": [{
             "linkhref": "https://youtu.be/Y8c43MU7rqs?t=3194"
             },{
@@ -604,6 +679,7 @@ export default class Pinball extends Vue {
         {
         "tag": "TZ",
         "name": "Twilight Zone",
+        "image": "",
         "links": [{
             "linkhref": "videos\\PAPA20Finals2017.mp4#t=01:41:00"
             },{
@@ -613,6 +689,7 @@ export default class Pinball extends Vue {
         {
         "tag": "WCS",
         "name": "World Cup Soccer",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/ylSY_jQUjs0?t=14725"
             }]
@@ -620,6 +697,7 @@ export default class Pinball extends Vue {
         {
         "tag": "VIK",
         "name": "Viking",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/hDu9g6RrI8g?t=840"
             }]
@@ -627,6 +705,7 @@ export default class Pinball extends Vue {
         {
         "tag": "WM",
         "name": "Wrestlemania",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/hFXAC7A2Etg?t=284"
             }]
@@ -634,6 +713,7 @@ export default class Pinball extends Vue {
         {
         "tag": "WPT",
         "name": "World Poker Tour",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/Y8c43MU7rqs?t=3987"
             },{
@@ -643,6 +723,7 @@ export default class Pinball extends Vue {
         {
         "tag": "WW",
         "name": "White Water",
+        "image": "",
         "links": [{
             "linkhref": "https://youtu.be/Z7YOug3f9a4?t=2"
             }]
@@ -650,6 +731,7 @@ export default class Pinball extends Vue {
         {
         "tag": "XENON",
         "name": "Xenon",
+        "image": "xenon-bally-2821.jpg",
         "links": [{
             "linkhref": "https://youtu.be/YKWEpKjZekA?t=9"
             }]
@@ -657,6 +739,7 @@ export default class Pinball extends Vue {
         {
         "tag": "XM",
         "name": "X-Men",
+        "image": "xmen-stern-5822.jpg",
         "links": [{
             "linkhref": "https://youtu.be/Y8c43MU7rqs?t=8946"
             },{

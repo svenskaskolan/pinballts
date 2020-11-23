@@ -7,6 +7,28 @@ h1 {
     margin: 20px 0;
 
 }
+
+.u-relative {
+    position: relative;
+}
+
+.u-absolute {
+    position: absolute;
+}
+.u-width100 {
+    width: 100%
+}
+.u-alignCenter {
+    text-align: center;
+}
+
+.u-block {
+    display: block;
+}
+
+.u-inlineBlock {
+    display: inline-block;
+}
 .u-heading {
     font-weight: bold;
     margin-top: 0.5em;
@@ -111,6 +133,9 @@ h1 {
     justify-content: space-between;
 }
 
+.u-flexWrap {
+    flex-wrap: wrap;
+}
 .u-ellipsis {
     white-space: nowrap;
     overflow: hidden;
@@ -125,6 +150,9 @@ h1 {
     width: 40%;
 }
 
+.u-width10 {
+    width: 10%;
+}
 .u-maxWidth40 {
     max-width: 40%;
 }
