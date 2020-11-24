@@ -1,34 +1,28 @@
-img {
-    height: auto;
-    max-width: 240px;
-  }
-
 .tableImage {
     width:180px; 
     height:180px; 
     border-radius:50%; 
     background-size:cover;
-    margin-left: 16px;
     margin-top: 16px;
     box-shadow: 0px 2px 6px 2px #000000;
 }
 
 .tableImage.noImage {
-    opacity: 0.3;
-    margin-left: 0;
-    margin-top: 0;
+    opacity: 0.2;
 }
 
 .tableText {
     position: absolute; 
     top: 60px;
-    width: 80%;
+    width: 100%;
     text-align: center;
     color: white;
     font-weight: bolder;
     font-size: 1.5rem;
+    text-shadow: 2px 0px 2px #222, -2px 0px 2px #222, 0px 2px 2px #222, 0px -2px 2px #222;
 }
 
 .tableText.noImage {
     color: #444444;
+    text-shadow: none;
 }

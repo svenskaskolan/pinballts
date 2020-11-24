@@ -43,60 +43,60 @@ h1 {
 
 
 .u-paddingRsm {
-    padding-right: 6px;
+    padding-right: 8px;
 }
 
 
 .u-paddingLsm {
-    padding-left: 6px;
+    padding-left: 8px;
 }
 
 .u-paddingBsm {
-    padding-bottom: 6px;
+    padding-bottom: 8px;
 }
 
 .u-paddingTsm {
-    padding-top: 6px;
+    padding-top: 8px;
 }
 
 .u-paddingVsm {
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .u-paddingHsm {
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .u-paddingRsm {
-    padding-right: 6px;
+    padding-right: 8px;
 }
 
 .u-marginRsm {
-    margin-right: 6px;
+    margin-right: 8px;
 }
 
 .u-marginLsm {
-    margin-left: 6px;
+    margin-left: 8px;
 }
 
 .u-marginBsm {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .u-marginTsm {
-    margin-top: 6px;
+    margin-top: 8px;
 }
 
 .u-marginVsm {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .u-marginHsm {
-    margin-left: 6px;
-    margin-right: 6px;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 .u-marginR {
     margin-right: 16px;
@@ -151,6 +151,11 @@ h1 {
 .u-flexSpaceBetween {
     display: flex;
     justify-content: space-between;
+}
+
+.u-flexSpaceAround {
+    display: flex;
+    justify-content: space-around
 }
 
 .u-flexWrap {
