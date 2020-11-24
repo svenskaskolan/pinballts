@@ -49,14 +49,20 @@
                 </div>
             </div>
             <div v-else>
-                <div  class="u-flexSpaceBetween u-paddingBsm u-flexWrap" >
+                <div  class="u-flex u-flexWrap" >
                     <div v-for="pintable in pinData" :key="'pintable' + pintable.name">
-                        <div v-if="pintable.image" class="tableImage u-relative" :style="'background-image: url(http://localhost:8000/assets/images/tables/LPA/' + encodeURI(pintable.image) + ')'">
+                        <div v-if="pintable.image" class="tableImage u-relative u-marginL" :style="'background-image: url(http://localhost:8000/assets/images/tables/LPA/' + encodeURI(pintable.image) + ')'">
                             <div class="u-width10 u-inlineBlock"></div>
                             <div class="tableText u-inlineBlock">
                                 {{pintable.name}}
                             </div>
                             <div class="u-width10 u-inlineBlock"></div>
+                        </div>
+                        <div class="u-relative u-marginL u-marginT" v-else>
+                            <div class="tableImage noImage u-relative" :style="'background-image: url(http://localhost:8000/assets/images/tables/noimage.jpg)'"></div>
+                            <div class="tableText noImage u-inlineBlock u-paddingL u-paddingR">
+                                {{pintable.name}}
+                            </div>
                         </div>
                     </div>
                 </div>

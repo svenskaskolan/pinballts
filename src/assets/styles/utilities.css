@@ -52,16 +52,16 @@ h1 {
 }
 
 .u-paddingBsm {
-    padding-bottom: 3px;
+    padding-bottom: 6px;
 }
 
 .u-paddingTsm {
-    padding-top: 3px;
+    padding-top: 6px;
 }
 
 .u-paddingVsm {
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
 .u-paddingHsm {
@@ -82,16 +82,16 @@ h1 {
 }
 
 .u-marginBsm {
-    margin-bottom: 3px;
+    margin-bottom: 6px;
 }
 
 .u-marginTsm {
-    margin-top: 3px;
+    margin-top: 6px;
 }
 
 .u-marginVsm {
-    margin-top: 3px;
-    margin-bottom: 3px;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 .u-marginHsm {
@@ -107,25 +107,45 @@ h1 {
 }
 
 .u-marginB {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
 }
 
 .u-marginT {
-    margin-top: 8px;
+    margin-top: 16px;
 }
 
 .u-marginV {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 .u-marginH {
     margin-left: 16px;
     margin-right: 16px;
 }
+
+.u-paddingL {
+    padding-left: 16px;
+}
+
+.u-paddingR {
+    padding-right: 16px;
+}
+
+.u-paddingT {
+    padding-top: 16px;
+}
+
+.u-paddingB {
+    padding-bottom: 16px;
+}
 .u-mainNormal {
     margin: 0 auto;
     width: 80%;
+}
+
+.u-flex {
+    display: flex;
 }
 
 .u-flexSpaceBetween {
