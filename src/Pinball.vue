@@ -48,17 +48,29 @@
                 </div>
             </div>
             <div v-else>
-                <div  class="u-flexSpaceAround u-flexWrap" >
+                <div class="u-flexSpaceAround u-flexWrap" >
                     <div class="u-marginLsm u-marginRsm" v-for="pintable in pinData" :key="'pintable' + pintable.name">
-                        <div v-if="pintable.image" class="tableImage u-relative" :style="'background-image: url(http://localhost:8000/assets/images/tables/LPA/' + encodeURI(pintable.image) + ')'">
-                            <div class="tableText">
+                        <div v-if="pintable.image" v-on:mouseover="hoverName = pintable.name" class="u-relative" >
+                            <div  class="tableImage" :class="{'imageHover': pintable.name === hoverName}"  :style="'background-image: url(http://localhost:8000/assets/images/tables/LPA/' + encodeURI(pintable.image) + ')'">
+                            </div>
+                            <div v-if="pintable.name != hoverName" class="tableText">
                                 {{pintable.name}}
                             </div>
+                            <div v-if="pintable.name === hoverName" class="tableText noImage">
+                                <a href="#" v-for="(links, index) in pintable.links" :key="'links' + links.linkhref" class="u-block">
+                                    video{{index + 1}}
+                                </a>
+                            </div>
                         </div>
-                        <div class="u-relative" v-else>
-                            <div class="tableImage noImage u-relative" :style="'background-image: url(http://localhost:8000/assets/images/tables/noimage.jpg)'"></div>
-                            <div class="tableText noImage">
+                        <div v-else class="u-relative" v-on:mouseover="hoverName = pintable.name">
+                            <div  class="tableImage noImage" :style="'background-image: url(http://localhost:8000/assets/images/tables/noimage.jpg)'"></div>
+                            <div  v-if="pintable.name != hoverName" class="tableText noImage">
                                 {{pintable.name}}
+                            </div>
+                            <div v-if="pintable.name === hoverName">
+                                <a href="#" v-for="(links, index) in pintable.links" :key="'links' + links.linkhref" class="tableText noImage u-block">
+                                    video{{index + 1}}
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -76,6 +88,7 @@ import { PinTable } from './interfaces/pintable';
 export default class Pinball extends Vue {
     title: string = '';
     viewStyle: string = "list";
+    hoverName: string = 'Avatar';
     pinData: PinTable[] = [
         {
         "tag": "8B",
@@ -141,6 +154,14 @@ export default class Pinball extends Vue {
         "image": "corvette-williams-570.jpg",
         "links": [{
             "linkhref": "https://youtu.be/F-UEWoNhrvM?t=67"
+            }]
+        },
+        {
+        "tag": "ST",
+        "name": "Stranger Things",
+        "image": "",
+        "links": [{
+            "linkhref": "https://youtu.be/fm0WXpLxMnM?t=64"
             }]
         },
         {
