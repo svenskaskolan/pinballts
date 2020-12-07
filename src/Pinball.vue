@@ -31,7 +31,7 @@
                 <button type="button" v-on:click="viewStyle = 'list'">List Style</button>
                 <button type="button" v-on:click="viewStyle = 'visual'">Visual Style</button>
             </div>
-            <div v-if="viewStyle === 'list'">
+            <div class="u-mainContent list" v-if="viewStyle === 'list'">
                 <div class="u-flexSpaceBetween u-heading">
                     <div class="u-paddingLsm u-width20">Code</div>
                     <div class="u-paddingLsm u-width40">Name</div>
@@ -41,23 +41,23 @@
                     <div class="u-paddingLsm u-width20 u-ellipsis u-colorBgGrey">{{pintable.tag}}</div>
                     <div class="u-paddingLsm u-width40 u-ellipsis u-colorBgGreyLight">{{pintable.name}}</div>
                     <div class="u-paddingLsm u-width40 u-ellipsis u-colorBgGrey">
-                        <template v-for="(link, index) in pintable.links" :key="'link' + link.linkhref">
-                            <a class="u-marginRsm u-link" :href="link.linkhref">video{{index + 1}}</a><span> </span>
+                        <template v-for="(links, index) in pintable.links" :key="'link' + links.linkhref">
+                            <a class="u-marginRsm u-link" :href="links.linkhref">video{{index + 1}}</a><span> </span>
                         </template>
                     </div>
                 </div>
             </div>
-            <div v-else>
+            <div v-else class="u-mainContent icons">
                 <div class="u-flexSpaceAround u-flexWrap" >
                     <div class="u-marginLsm u-marginRsm" v-for="pintable in pinData" :key="'pintable' + pintable.name">
                         <div v-if="pintable.image" v-on:mouseover="hoverName = pintable.name" class="u-relative" >
-                            <div  class="tableImage" :class="{'imageHover': pintable.name === hoverName}"  :style="'background-image: url(http://localhost:8000/assets/images/tables/LPA/' + encodeURI(pintable.image) + ')'">
+                            <div  class="tableImage" :class="{'imageHover': pintable.name === hoverName}"  :style="'background-image: url(http://localhost:8000/assets/images/tables/LPA/JPEG/' + encodeURI(pintable.image) + ')'">
                             </div>
                             <div v-if="pintable.name != hoverName" class="tableText">
                                 {{pintable.name}}
                             </div>
                             <div v-if="pintable.name === hoverName" class="tableText noImage">
-                                <a href="#" v-for="(links, index) in pintable.links" :key="'links' + links.linkhref" class="u-block">
+                                <a v-for="(links, index) in pintable.links" :href="links.linkhref" :key="'links' + links.linkhref" class="u-block">
                                     video{{index + 1}}
                                 </a>
                             </div>
@@ -68,7 +68,7 @@
                                 {{pintable.name}}
                             </div>
                             <div v-if="pintable.name === hoverName">
-                                <a href="#" v-for="(links, index) in pintable.links" :key="'links' + links.linkhref" class="tableText noImage u-block">
+                                <a v-for="(links, index) in pintable.links" :href="links.linkhref" :key="'links' + links.linkhref" class="tableText noImage u-block">
                                     video{{index + 1}}
                                 </a>
                             </div>
