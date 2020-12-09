@@ -106,6 +106,9 @@ h1 {
     margin-right: 16px;
 }
 
+.u-margin {
+    margin: 16px;
+}
 .u-marginL {
     margin-left: 16px;
 }
@@ -155,6 +158,10 @@ h1 {
     display: flex;
 }
 
+.u-flexColumn {
+    flex-direction: column;
+}
+
 .u-flexSpaceBetween {
     display: flex;
     justify-content: space-between;
@@ -192,6 +199,10 @@ h1 {
     display: inline-block;
 }
 
+.u-border10 {
+    border-radius: 10px;
+}
+
 .u-alignMiddle {
     vertical-align: middle;
 }
@@ -204,6 +215,9 @@ h1 {
     background: #e7e7e7;
 }
 
+.u-colorBgSpeakerblack {
+    background: #1E1E1F;
+}
 @media screen and (max-width : 550px)
 {
     body {

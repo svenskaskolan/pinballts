@@ -4,29 +4,36 @@
         <title>Pinball Tutorials</title>
     </head>
     <body>
-        <div id="app" class="u-mainNormal">
-            <div class="heading">
-                <div class="u-inlineBlock u-marginR u-alignMiddle u-maxWidth40">
-                    <svg class="" xmlns="http://www.w3.org/2000/svg">
-                        <g id="Component_2_1" data-name="Component 2 – 1" transform="translate(1.497)">
-                            <g id="Component_1_1" data-name="Component 1 – 1">
-                            <g id="Rectangle_1" data-name="Rectangle 1" transform="translate(0 54)" fill="none" stroke="#707070" stroke-width="4">
-                                <rect width="108" height="33" stroke="none"/>
-                                <rect x="2" y="2" width="104" height="29" fill="none"/>
-                            </g>
-                            <line id="Line_1" data-name="Line 1" x1="2" y2="34.22" transform="translate(0.5 85.28)" fill="none" stroke="#707070" stroke-width="4"/>
-                            <line id="Line_2" data-name="Line 2" x2="7.24" y2="34.22" transform="translate(101.26 85.28)" fill="none" stroke="#707070" stroke-width="4"/>
-                            <g id="Rectangle_2" data-name="Rectangle 2" fill="none" stroke="#707070" stroke-width="4">
-                                <rect width="16" height="58" stroke="none"/>
-                                <rect x="2" y="2" width="12" height="54" fill="none"/>
-                            </g>
-                            </g>
-                            <text id="tutorials" transform="translate(15 78)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">tutorials</tspan></text>
-                        </g>
-                    </svg>
+        <div class="u-mainHeading u-marginT u-marginB">
+            <div class="u-flexSpaceBetween">
+                <img src="http://localhost:8000/assets/images/pageparts/speaker.png" width="100"/>
+                <div class="dmd u-flexSpaceAround u-flexColumn">
+                    <div class="u-marginL u-marginR u-flexSpaceBetween">
+                        <div v-for="index in 80" style="width:5px; height:5px; border-radius:50%; background-color: white; opacity:0.05" :key="'dmdpixel' + index"></div>
+                    </div>
+                    <div class="u-marginR u-marginL u-flexSpaceBetween">
+                        <div v-for="index in 80" style="width:5px; height:5px; border-radius:50%; background-color: white; opacity:0.05" :key="'dmdpixel' + index"></div>
+                    </div>
+                    <div class="u-marginR u-marginL u-flexSpaceBetween">
+                        <div v-for="index in 80" style="width:5px; height:5px; border-radius:50%; background-color: white; opacity:0.05" :key="'dmdpixel' + index"></div>
+                    </div>
+                    <div class="u-marginR u-marginL u-flexSpaceBetween">
+                        <div v-for="index in 80" style="width:5px; height:5px; border-radius:50%; background-color: white; opacity:0.05" :key="'dmdpixel' + index"></div>
+                    </div>
+                    <div class="u-marginR u-marginL u-flexSpaceBetween">
+                        <div v-for="index in 80" style="width:5px; height:5px; border-radius:50%; background-color: white; opacity:0.05" :key="'dmdpixel' + index"></div>
+                    </div>
+                    <div class="u-marginR u-marginL u-flexSpaceBetween">
+                        <div v-for="index in 80" style="width:5px; height:5px; border-radius:50%; background-color: white; opacity:0.05" :key="'dmdpixel' + index"></div>
+                    </div>
+                    <div class="u-marginR u-marginL u-flexSpaceBetween">
+                        <div v-for="index in 80" style="width:5px; height:5px; border-radius:50%; background-color: white; opacity:0.05" :key="'dmdpixel' + index"></div>
+                    </div>
                 </div>
-                <h1 class="u-inlineBlock">{{ title }}</h1>
+                <img src="http://localhost:8000/assets/images/pageparts/speaker.png" width="100"/>
             </div>
+        </div>
+        <div id="app" class="u-mainNormal">
             <div class="u-flexSpaceBetween">
                 <button type="button" v-on:click="viewStyle = 'list'">List Style</button>
                 <button type="button" v-on:click="viewStyle = 'visual'">Visual Style</button>
