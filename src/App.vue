@@ -2,7 +2,7 @@
     <div class="u-mainHeading u-marginT u-marginB">
         <div class="u-flexSpaceBetween">
             <img src="http://localhost:8000/assets/images/pageparts/speaker.png" width="100"/>
-            <dmd :rows="dmdSettings.rows" :columns="dmdSettings.columns"/>       
+            <dmd :rows="dmdSettings.rows" :columns="dmdSettings.columns" :displayString = "dmdSettings.displayString"/>       
             <img src="http://localhost:8000/assets/images/pageparts/speaker.png" width="100"/>
         </div>
     </div>
@@ -79,7 +79,7 @@ export default ({
         const dmdSettings = reactive({
             rows: 9,
             columns: 100,
-            text: "Welcome to Pinball Tutorials",
+            displayString: "Welcome to Pinball Tutorials",
             flowFrom: "right",
             flowStop: "loop"
         })

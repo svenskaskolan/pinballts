@@ -25,7 +25,15 @@
             },
             displayString: {
                 type: String,
-                mandatory: false
+                default: "Welcome to Pinball Tutorials"
+            },
+            flowFrom: {
+                type: String,
+                default: "right"
+            },
+            flowStop: {
+                type: String,
+                default: "loop"
             }
         }
     });
