@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
-import Pinball from './Pinball.vue';
+import App from './App.vue';
 import './assets/styles/utilities.css';
 import './assets/styles/tableimages.css';
 
-createApp(Pinball).mount('#app')
+createApp(App).mount('#app')
