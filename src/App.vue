@@ -74,8 +74,8 @@ export default ({
         const title = 'Pinball Tutorials';
         const rows = 9;
         const columns = 80;
-        const viewStyle = ref("list");
-        const hoverName = 'Avatar';
+        const viewStyle = ref('list');
+        const hoverName = ref('');
         const pinData: PinTable[] = [
             {
             "tag": "8B",
