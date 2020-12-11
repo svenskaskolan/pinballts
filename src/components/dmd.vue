@@ -1,7 +1,7 @@
 <template>
     <div class="dmd u-flexSpaceAround u-flexColumn">
         <div v-for="row in rows" class="u-marginL u-marginR u-flexSpaceBetween" :key="'row' + row">
-            <dmdpixel v-for="column in columns" :key="'dmdpixel' + column" :row="row" :column="column"/>
+            <dmdpixel v-for="column in columns" :key="'dmdpixel' + row + column" :row="row" :column="column"/>
         </div>
     </div>
 </template>

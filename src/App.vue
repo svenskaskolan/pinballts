@@ -2,7 +2,7 @@
     <div class="u-mainHeading u-marginT u-marginB">
         <div class="u-flexSpaceBetween">
             <img src="http://localhost:8000/assets/images/pageparts/speaker.png" width="100"/>
-            <dmd :rows="10" :columns="100"/>       
+            <dmd :rows="dmdSettings.rows" :columns="dmdSettings.columns"/>       
             <img src="http://localhost:8000/assets/images/pageparts/speaker.png" width="100"/>
         </div>
     </div>
@@ -61,7 +61,7 @@
 </template>
 
 <script lang="ts">
-import {ref} from "vue";
+import {ref, reactive} from "vue";
 import { PinTable } from './interfaces/pintable';
 import dmd from './components/dmd.vue';
 
@@ -71,11 +71,18 @@ export default ({
         dmd
     },
     setup() {
+        // use ref to make a primitive values reactive, or reactive to make an object reactive.
+        // See the video here..   https://www.danvega.dev/blog/2020/02/12/vue3-ref-vs-reactive/
         const title = 'Pinball Tutorials';
-        const rows = 9;
-        const columns = 80;
         const viewStyle = ref('list');
         const hoverName = ref('');
+        const dmdSettings = reactive({
+            rows: 9,
+            columns: 100,
+            text: "Welcome to Pinball Tutorials",
+            flowFrom: "right",
+            flowStop: "loop"
+        })
         const pinData: PinTable[] = [
             {
             "tag": "8B",
@@ -419,8 +426,7 @@ export default ({
             viewStyle,
             hoverName,
             pinData,
-            rows,
-            columns
+            dmdSettings
         }
     }
 });
