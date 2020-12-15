@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-    import {defineComponent, ref} from "vue";
+    import {defineComponent, ref, onBeforeUpdate} from "vue";
     export default defineComponent({
         name: 'dmdpixel',
         props: {
@@ -26,11 +26,19 @@
         },
         setup(parameters) {
             // ref makes the value reactive.  To change a value use backupOpacity.value for example
-            const backupOpacity = ref(parameters.opacity);
-            const backupColor = ref(parameters.color);
-            return {
-                backupOpacity,
-                backupColor
+            if (parameters.row && parameters.column) {
+         //       const divs = ref([])
+                const backupOpacity = ref(parameters.opacity);
+                const backupColor = ref(parameters.color);
+
+/*                 onBeforeUpdate(() => {
+                    divs.value = []
+                }) */
+                return {
+                    backupOpacity,
+                    backupColor
+         //           divs
+                }
             }
         }
     });
