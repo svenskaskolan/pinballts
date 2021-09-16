@@ -1,9 +1,9 @@
-var path = require('path');
-var express = require('express');
-var app = express();
-
-var dir = __dirname;
-
+import express from 'express';
+import path from 'path';
+import { fileURLToPath} from 'url';
+const app = express();
+const filename = fileURLToPath(import.meta.url);
+const dir = path.dirname(filename);
 app.use(express.static(dir));
 
 app.listen(8000, function () {
