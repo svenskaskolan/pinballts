@@ -11,7 +11,7 @@ npm run serve
 ```
 ### Starts a node images server.
 ```
-node imageServer
+node imageServer.mjs
 ```
 ### Compiles and minifies for production
 ```
