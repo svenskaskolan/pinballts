@@ -9,7 +9,10 @@ npm install
 ```
 npm run serve
 ```
-
+### Starts a node images server.
+```
+node imageServer.mjs
+```
 ### Compiles and minifies for production
 ```
 npm run build
