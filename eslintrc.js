@@ -1,6 +1,7 @@
 module.exports = {
     "env": {
-        "browser": true
+        "browser": true,
+        "es2022": true
     },
     "extends": [
         "plugin:@typescript-eslint/recommended",
@@ -108,7 +109,7 @@ module.exports = {
                 ]
             }
         ],
-        "no-debugger": "error",
+        "no-debugger": "off",
         "no-empty": "error",
         "no-eval": "error",
         "no-fallthrough": "error",

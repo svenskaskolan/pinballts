@@ -17,7 +17,8 @@
             },
             opacity: {
                 type: Number,
-                default: 0.05
+                default: 0.05,
+                writeable: true
             },
             color: {
                 type: String,

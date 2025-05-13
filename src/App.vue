@@ -61,11 +61,11 @@
 </template>
 
 <script lang="ts">
-import {ref, reactive} from "vue";
+import {ref, reactive, defineComponent} from "vue";
 import { PinTable } from './interfaces/pintable';
 import dmd from './components/dmd.vue';
 
-export default ({
+export default defineComponent ({
     name: 'app',
     components: {
         dmd
