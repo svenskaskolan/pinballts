@@ -1,9 +1,9 @@
 <template>
     <div class="u-mainHeading u-marginT u-marginB">
         <div class="u-flexSpaceBetween">
-            <img src="http://localhost:8000/assets/images/pageparts/speaker.png" width="100"/>
+            <img src="/images/pageparts/speaker.png" width="100"/>
             <dmd :rows="dmdSettings.rows" :columns="dmdSettings.columns" :displayString = "dmdSettings.displayString"/>       
-            <img src="http://localhost:8000/assets/images/pageparts/speaker.png" width="100"/>
+            <img src="/images/pageparts/speaker.png" width="100"/>
         </div>
     </div>
     <div class="u-mainNormal">
@@ -32,7 +32,7 @@
             <div class="u-flexSpaceAround u-flexWrap" >
                 <div class="u-marginLsm u-marginRsm" v-for="pintable in pinData" :key="'pintable' + pintable.name">
                     <div v-if="pintable.image" v-on:mouseover="hoverName = pintable.name" class="u-relative" >
-                        <div  class="tableImage" :class="{'imageHover': pintable.name === hoverName}"  :style="'background-image: url(http://localhost:8000/assets/images/tables/LPA/JPEG/' + encodeURI(pintable.image) + ')'">
+                        <div  class="tableImage" :class="{'imageHover': pintable.name === hoverName}"  :style="'background-image: url(images/tables/LPA/JPEG/' + encodeURI(pintable.image) + ')'">
                         </div>
                         <div v-if="pintable.name != hoverName" class="tableText">
                             {{pintable.name}}
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div v-else class="u-relative" v-on:mouseover="hoverName = pintable.name">
-                        <div  class="tableImage noImage" :style="'background-image: url(http://localhost:8000/assets/images/tables/noimage.jpg)'"></div>
+                        <div  class="tableImage noImage" :style="'background-image: url(images/tables/noimage.jpg)'"></div>
                         <div  v-if="pintable.name != hoverName" class="tableText noImage">
                             {{pintable.name}}
                         </div>
