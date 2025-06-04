@@ -2,14 +2,21 @@
     <div class="u-mainHeading u-marginT u-marginB">
         <div class="u-flexSpaceBetween">
             <img src="/images/pageparts/speaker.png" width="180" height="180"/>
-            <dmd :rows="dmdSettings.rows" :columns="dmdSettings.columns" :displayString = "dmdSettings.displayString"/>       
+            <dmd 
+                :rows="dmdSettings.rows" 
+                :columns="dmdSettings.columns" 
+                :displayString = "dmdSettings.displayString" 
+                :imageUrl="dmdSettings.imageUrl"/>       
             <img src="/images/pageparts/speaker.png" width="180" height="180"/>
         </div>
     </div>
     <div class="u-mainNormal">
         <div class="u-flexSpaceBetween">
             <button type="button" v-on:click="viewStyle = 'list'">List Style</button>
-            <div>{{title}}</div>
+            <div>
+                <input type="text" v-model="dmdSettings.displayString" />
+                <button type="button" v-on:click="$forceUpdate()">Lets go...</button>
+            </div>
             <button type="button" v-on:click="viewStyle = 'visual'">Visual Style</button>
         </div>
         <div class="u-mainContent list" v-if="viewStyle === 'list'">
@@ -61,18 +68,19 @@
 </template>
 
 <script lang="ts" setup>
-    import {ref} from "vue";
+    import {reactive, ref} from "vue";
     import { PinTable } from './interfaces/pintable';
     import dmd from './components/dmd.vue';
     const title = 'Pinball Tutorials';
     const viewStyle = ref('list');
     const hoverName = ref('');
-    const dmdSettings = ref({
+    const dmdSettings = reactive({
         rows: 32,
         columns: 128,
-        displayString: "Hello Lets",
+        displayString: "Hello",
         flowFrom: "right",
-        flowStop: "loop"
+        flowStop: "loop",
+        imageUrl: "",
     })
     const pinData = ref<PinTable[]>([
         {
